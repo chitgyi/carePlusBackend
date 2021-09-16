@@ -1,5 +1,5 @@
 @section('title', 'Dashboard')
 
 <div>
-    Content
+    Dashboard
 </div>
