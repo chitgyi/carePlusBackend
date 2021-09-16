@@ -31879,6 +31879,10 @@ video {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.box {
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;

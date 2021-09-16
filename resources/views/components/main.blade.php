@@ -1,5 +1,5 @@
 <main class="main flex flex-col flex-grow -ml-64 md:ml-0 transition-all duration-150 ease-in">
-    <header class="header bg-white shadow py-4 px-4">
+    <header class="header bg-white box py-3 px-4 rounded-lg m-2">
         <div class="header-content flex items-center flex-row">
             <form action="#">
                 <div class="hidden md:flex relative">
