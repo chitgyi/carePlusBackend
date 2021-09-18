@@ -12,4 +12,9 @@ class CategoryList extends Component
         $categories = Category::latest()->get();
         return view('livewire.category.index', compact('categories'));
     }
+
+    public function delete(Category $category)
+    {
+        $category->delete();
+    }
 }

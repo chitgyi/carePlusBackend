@@ -5,6 +5,8 @@ use App\Http\Livewire\Articles\ArticleCreate;
 use App\Http\Livewire\Articles\ArticleDetail;
 use App\Http\Livewire\Articles\ArticleList;
 use App\Http\Livewire\Category\CategoryCreate;
+use App\Http\Livewire\Category\CategoryDetail;
+use App\Http\Livewire\Category\CategoryEdit;
 use App\Http\Livewire\Category\CategoryList;
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\Doctor\DoctorCreate;
@@ -26,6 +28,8 @@ Route::get('articles/{id}', ArticleDetail::class)->name('articles.detail');
 
 Route::get('categories', CategoryList::class)->name('categories');
 Route::get('categories/create', CategoryCreate::class)->name('categories.create');
+Route::get('categories/{id}/edit', CategoryEdit::class)->name('categories.edit');
+Route::get('categories/{id}', CategoryDetail::class)->name('categories.detail');
 
 Route::get('doctors', DoctorList::class)->name('doctors');
 Route::get('doctors/create', DoctorCreate::class)->name('doctors.create');
