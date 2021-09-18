@@ -1,5 +1,5 @@
 <aside
-    class="sidebar w-64 md:shadow transform -translate-x-full md:translate-x-0 transition-transform duration-150 ease-in bg-white">
+    class="sidebar w-72 md:shadow transform -translate-x-full md:translate-x-0 transition-transform duration-150 ease-in bg-white">
     <div class="sidebar-header flex items-center justify-center py-4">
         <div class="inline-flex">
             <a href="#" class="inline-flex flex-row items-center space-x-3">
@@ -35,7 +35,7 @@
             </li>
             <li class="my-px">
                 <a href="{{ route('articles') }}"
-                    class="flex flex-row items-center h-10 px-3 rounded-lg hover:bg-green-400 hover:text-white {{ Request::routeIs('articles') ? 'bg-green-500 text-white' : 'text-green-900' }}">
+                    class="flex flex-row items-center h-10 px-3 rounded-lg hover:bg-green-400 hover:text-white {{ Request::routeIs('articles') || Request::routeIs('articles.create') ? 'bg-green-500 text-white' : 'text-green-900' }}">
                     <span class="flex items-center justify-center text-lg text-white-700">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-book" viewBox="0 0 16 16">
@@ -50,7 +50,7 @@
             </li>
             <li class="my-px">
                 <a href="{{ route('categories') }}"
-                    class="flex flex-row items-center h-10 px-3 rounded-lg hover:bg-green-400 hover:text-white {{ Request::routeIs('categories') ? 'bg-green-500 text-white' : 'text-green-900' }}">
+                    class="flex flex-row items-center h-10 px-3 rounded-lg hover:bg-green-400 hover:text-white {{ Request::routeIs('categories') || Request::routeIs('categories.create') ? 'bg-green-500 text-white' : 'text-green-900' }}">
                     <span class="flex items-center justify-center text-lg text-white-700">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-view-list" viewBox="0 0 16 16">

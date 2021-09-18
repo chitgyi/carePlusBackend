@@ -15,10 +15,14 @@
         "alpinejs": "^3.0.6",
         "autoprefixer": "^10.3.4",
         "axios": "^0.21",
+        "jquery": "^3.6.0",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
         "postcss": "^8.3.6",
         "postcss-import": "^14.0.1",
         "tailwindcss": "^2.2.15"
+    },
+    "dependencies": {
+        "@tailwindcss/line-clamp": "^0.2.1"
     }
 }

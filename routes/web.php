@@ -1,10 +1,16 @@
 <?php
 
-use App\Http\Livewire\Articles;
-use App\Http\Livewire\Categories;
+use App\Http\Livewire\Articles\ArticleEdit;
+use App\Http\Livewire\Articles\ArticleCreate;
+use App\Http\Livewire\Articles\ArticleDetail;
+use App\Http\Livewire\Articles\ArticleList;
+use App\Http\Livewire\Category\CategoryCreate;
+use App\Http\Livewire\Category\CategoryList;
 use App\Http\Livewire\Dashboard;
-use App\Http\Livewire\Doctors;
-use App\Http\Livewire\Hospitals;
+use App\Http\Livewire\Doctor\DoctorCreate;
+use App\Http\Livewire\Doctor\DoctorList;
+use App\Http\Livewire\Hospital\HospitalCreate;
+use App\Http\Livewire\Hospital\HospitalList;
 use App\Http\Livewire\Notifications;
 use App\Http\Livewire\Settings;
 use App\Http\Livewire\Users;
@@ -12,10 +18,21 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('dashboard', Dashboard::class)->name('dashboard');
-Route::get('articles', Articles::class)->name('articles');
-Route::get('categories', Categories::class)->name('categories');
-Route::get('doctors', Doctors::class)->name('doctors');
-Route::get('hospitals', Hospitals::class)->name('hospitals');
+
+Route::get('articles', ArticleList::class)->name('articles');
+Route::get('articles/create', ArticleCreate::class)->name('articles.create');
+Route::get('articles/{id}/edit', ArticleEdit::class)->name('articles.edit');
+Route::get('articles/{id}', ArticleDetail::class)->name('articles.detail');
+
+Route::get('categories', CategoryList::class)->name('categories');
+Route::get('categories/create', CategoryCreate::class)->name('categories.create');
+
+Route::get('doctors', DoctorList::class)->name('doctors');
+Route::get('doctors/create', DoctorCreate::class)->name('doctors.create');
+
+Route::get('hospitals', HospitalList::class)->name('hospitals');
+Route::get('hospitals/create', HospitalCreate::class)->name('hospitals.create');
+
 Route::get('users', Users::class)->name('users');
 Route::get('notifications', Notifications::class)->name('notifications');
 Route::get('settings', Settings::class)->name('settings');
