@@ -10,6 +10,8 @@ use App\Http\Livewire\Category\CategoryEdit;
 use App\Http\Livewire\Category\CategoryList;
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\Doctor\DoctorCreate;
+use App\Http\Livewire\Doctor\DoctorDetail;
+use App\Http\Livewire\Doctor\DoctorEdit;
 use App\Http\Livewire\Doctor\DoctorList;
 use App\Http\Livewire\Hospital\HospitalCreate;
 use App\Http\Livewire\Hospital\HospitalList;
@@ -33,6 +35,8 @@ Route::get('categories/{id}', CategoryDetail::class)->name('categories.detail');
 
 Route::get('doctors', DoctorList::class)->name('doctors');
 Route::get('doctors/create', DoctorCreate::class)->name('doctors.create');
+Route::get('doctors/{id}/edit', DoctorEdit::class)->name('doctors.edit');
+Route::get('doctors/{id}', DoctorDetail::class)->name('doctors.detail');
 
 Route::get('hospitals', HospitalList::class)->name('hospitals');
 Route::get('hospitals/create', HospitalCreate::class)->name('hospitals.create');

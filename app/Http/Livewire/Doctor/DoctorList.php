@@ -12,4 +12,12 @@ class DoctorList extends Component
         $doctors = Doctor::latest()->get();
         return view('livewire.doctor.index', compact('doctors'));
     }
+
+    public function delete(Doctor $doctor)
+    {
+        if ($doctor->image && $doctor->image != '/uploads/dummy.jpg') {
+            unlink(public_path($doctor->image));
+        }
+        $doctor->delete();
+    }
 }
