@@ -14,6 +14,8 @@ use App\Http\Livewire\Doctor\DoctorDetail;
 use App\Http\Livewire\Doctor\DoctorEdit;
 use App\Http\Livewire\Doctor\DoctorList;
 use App\Http\Livewire\Hospital\HospitalCreate;
+use App\Http\Livewire\Hospital\HospitalDetail;
+use App\Http\Livewire\Hospital\HospitalEdit;
 use App\Http\Livewire\Hospital\HospitalList;
 use App\Http\Livewire\Notifications;
 use App\Http\Livewire\Settings;
@@ -40,6 +42,8 @@ Route::get('doctors/{id}', DoctorDetail::class)->name('doctors.detail');
 
 Route::get('hospitals', HospitalList::class)->name('hospitals');
 Route::get('hospitals/create', HospitalCreate::class)->name('hospitals.create');
+Route::get('hospitals/{id}/edit', HospitalEdit::class)->name('hospitals.edit');
+Route::get('hospitals/{id}', HospitalDetail::class)->name('hospitals.detail');
 
 Route::get('users', Users::class)->name('users');
 Route::get('notifications', Notifications::class)->name('notifications');

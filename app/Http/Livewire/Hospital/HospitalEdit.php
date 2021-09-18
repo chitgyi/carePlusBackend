@@ -6,8 +6,9 @@ use App\Models\Hospital;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
-class HospitalCreate extends Component
+class HospitalEdit extends Component
 {
+
     use WithFileUploads;
 
     public $photo;
@@ -57,21 +58,24 @@ class HospitalCreate extends Component
         'photo.image' => 'Hospital image must be an image.',
     ];
 
-    public function mount()
+    public function mount($id)
     {
-        $this->hospital = new Hospital();
+        $this->hospital = Hospital::findOrFail($id);
     }
 
     public function render()
     {
-        return view('livewire.hospital.create');
+        return view('livewire.hospital.edit');
     }
 
-    public function store()
+    public function update()
     {
         $this->validate();
         if ($this->photo) {
-            $this->hospital->image = "/uploads/" .  $this->photo->store('photos/hospitals', 'public_uploads');
+            if ($this->hospital->image && $this->hospital->image != '/uploads/dummy.jpg') {
+                unlink(public_path($this->hospital->image));
+            }
+            $this->hospital->image = '/uploads/' . $this->photo->store('photos/hospitals', 'public_uploads');
         }
         $this->hospital->save();
         return redirect()->route('hospitals');

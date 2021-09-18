@@ -14,13 +14,13 @@
             </li>
             <li><span class="mx-2">/</span></li>
             <li>
-                <p class="text-grey-600">Create</p>
+                <p class="text-grey-600">Edit</p>
             </li>
         </ol>
 
     </nav>
 
-    <form wire:submit.prevent="store">
+    <form wire:submit.prevent="update">
 
         <div class="box rounded p-4 space-y-4">
             @if ($errors->any())
@@ -39,6 +39,8 @@
                     <label for="photo">
                         @if ($photo)
                             <img class="w-40 h-40 rounded-full object-cover" src=" {{ $photo->temporaryUrl() }}">
+                        @elseif($hospital->image)
+                            <img class="w-40 h-40 rounded-full object-cover" src=" {{ $hospital->image }}">
                         @else
                             <div
                                 class="w-40 h-40 flex bg-gray-300 text-gray-500 justify-center object-cover items-center rounded-full">
@@ -125,7 +127,7 @@
             <div wire:loading.remove class="grid lg:grid-cols-6 grid-cols-1">
                 <button type="submit"
                     class="lg:col-start-6 shadow-md text-center bg-green-500 text-white button font-medium rounded">
-                    Create
+                    Update
                 </button>
             </div>
 

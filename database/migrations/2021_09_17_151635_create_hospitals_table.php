@@ -12,7 +12,7 @@ class CreateHospitalsTable extends Migration
         Schema::create('hospitals', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->string('address');
             $table->string('description');
             $table->string('city');
@@ -21,7 +21,7 @@ class CreateHospitalsTable extends Migration
             $table->string('phone');
             $table->string('email')->nullable();
             $table->string('website')->nullable();
-            $table->enum('type', ['Hospital', 'Clinic', 'Other']);
+            $table->enum('type', ['Hospital', 'Clinic', 'Other'])->default('Hospital')->nullable();
             $table->double('latitude');
             $table->double('longitude');
             $table->softDeletes();
