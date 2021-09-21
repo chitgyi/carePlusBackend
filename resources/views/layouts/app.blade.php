@@ -21,12 +21,17 @@
     <script src="{{ mix('js/app.js') }}" defer></script>
 </head>
 
-<body class="font-sans antialiased">
-    <div class="flex flex-row min-h-screen bg-gray-100 text-gray-800">
+<body class="bg-gray-100 text-gray-800">
+    <div class="box w-0 lg:w-2/12 h-0 lg:h-screen hidden lg:grid fixed">
         <x-sidebar />
-        <x-main>
-            {{ $slot }}
-        </x-main>
+    </div>
+    <div class="grid lg:grid-cols-12 sm:grid-cols-1">
+        <div class="col-span-2"></div>
+        <div class="col-span-10">
+            <x-main>
+                {{ $slot }}
+            </x-main>
+        </div>
     </div>
 
     @stack('modals')

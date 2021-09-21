@@ -1,5 +1,4 @@
-<aside
-    class="sidebar w-72 md:shadow transform -translate-x-full md:translate-x-0 transition-transform duration-150 ease-in bg-white">
+<aside class="sidebar transform -translate-x-full md:translate-x-0 transition-transform duration-150 ease-in bg-white">
     <div class="sidebar-header flex items-center justify-center py-4">
         <div class="inline-flex">
             <a href="#" class="inline-flex flex-row items-center space-x-3">
