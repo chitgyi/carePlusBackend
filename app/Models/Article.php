@@ -18,6 +18,12 @@ class Article extends Model
         'categroy_id',
     ];
 
+    public const STATUS = [
+        'pending',
+        'published',
+        'rejected',
+    ];
+
     public function category()
     {
         return $this->belongsTo(Category::class);

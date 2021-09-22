@@ -26,19 +26,20 @@
     </div>
 
     <div class="bg-gray-100 lg:box rounded">
-        <div class="lg:grid hidden grid-cols-5 bg-green-700 text-white rounded-t p-3">
+        <div class="lg:grid hidden grid-cols-6 bg-green-700 text-white rounded-t p-3">
             <div class="grid grid-cols-4 col-span-1">
                 <div>#</div>
                 <div class="text-center col-span-3">Image</div>
             </div>
-            <div class="text-left cursor-pointer">Title</div>
+            <div class="text-left">Title</div>
+            <div class="text-left">Status</div>
             <div class="col-span-2 text-left">Description</div>
             <div class="text-center">Actions</div>
         </div>
 
         <div class="grid lg:gap-0 gap-3">
             @foreach ($articles as $key => $article)
-                <div class="grid lg:grid-cols-5 p-3 border-b lg:gap-0 lg:box bg-white rounded gap-3">
+                <div class="grid lg:grid-cols-6 p-3 border-b lg:gap-0 lg:box bg-white rounded gap-3">
                     <div class="grid lg:grid-cols-4">
                         <div class="lg:flex hidden">{{ $key + 1 }}</div>
                         <div class="flex items-center lg:col-span-3 justify-center">
@@ -48,7 +49,12 @@
                             @endif
                         </div>
                     </div>
-                    <div class="text-left">{{ $article->title }}</div>
+                    <div class="text-left font-medium lg:font-normal">{{ $article->title }}</div>
+                    <div class="text-left">
+                        <span class="{{ $article->status }} px-3 py-1 rounded">
+                            {{ $article->status }}
+                        </span>
+                    </div>
                     <div class="lg:col-span-2 line-clamp-3 text-left">{{ $article->content }}</div>
                     <div class="lg:hidden sm:block border-t"></div>
                     <div class="flex items-center space-x-3 justify-between lg:justify-center">
