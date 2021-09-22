@@ -50,6 +50,7 @@
                     </div>
                     <div class="text-left">{{ $article->title }}</div>
                     <div class="lg:col-span-2 line-clamp-3 text-left">{{ $article->content }}</div>
+                    <div class="lg:hidden sm:block border-t"></div>
                     <div class="flex items-center space-x-3 justify-between lg:justify-center">
                         <a href="{{ route('articles.detail', $article->id) }}" title="Details">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
