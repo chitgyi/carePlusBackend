@@ -21,6 +21,7 @@ class ArticleEdit extends Component
         'article.category_id' => 'required|exists:categories,id',
         'article.doctor_id' => 'required|exists:doctors,id',
         'photo' => 'image|max:2014|nullable',
+        'article.status' => 'string|nullable',
     ];
 
     protected $messages = [
@@ -33,6 +34,7 @@ class ArticleEdit extends Component
         'article.doctor_id.exists' => 'Doctor does not exist',
         'photo.image' => 'Photo is not valid',
         'photo.max' => 'Photo is too large',
+        'article.status.string' => 'Status is not valid',
     ];
 
     public function mount($id)

@@ -16,6 +16,7 @@ class CreateArticlesTable extends Migration
             $table->longText('content');
             $table->foreignId('doctor_id')->constrained()->onDelete('cascade');
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
+            $table->enum('status', ['pending', 'published', 'rejected'])->default('pending');
             $table->softDeletes();
             $table->timestamps();
         });

@@ -35,7 +35,7 @@
 
             <div class="grid lg:grid-cols-6  grid-cols-1 gap-2 items-center">
                 <div></div>
-                <div class="col-span-5">
+                <div class="col-span-5 flex justify-center lg:justify-start">
                     <label for="photo">
                         @if ($photo)
                             <img class="w-40 h-40 rounded-full object-cover" src=" {{ $photo->temporaryUrl() }}">

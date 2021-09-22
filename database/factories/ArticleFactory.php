@@ -19,6 +19,7 @@ class ArticleFactory extends Factory
             'doctor_id' => $this->faker->numberBetween(1, 10),
             'category_id' => $this->faker->numberBetween(1, 10),
             'image' => '/uploads/dummy.jpg',
+            'status' => $this->faker->randomElement(Article::STATUS),
         ];
     }
 }

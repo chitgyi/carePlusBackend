@@ -32,7 +32,7 @@
 
             <div class="grid lg:grid-cols-6  grid-cols-1 gap-2 items-center">
                 <div></div>
-                <div class="col-span-5">
+                <div class="col-span-5 flex justify-center lg:justify-start">
                     <label for="photo">
                         @if ($photo)
                             <img class="w-40 h-40 rounded-full object-cover" src=" {{ $photo->temporaryUrl() }}">
@@ -83,6 +83,18 @@
                     @foreach ($doctors as $doctor)
                         <option value="{{ $doctor->id }}"
                             {{ $doctor->id == $article->doctor_id ? 'selected' : '' }}>{{ $doctor->name }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="grid lg:grid-cols-6 grid-cols-1 gap-2 items-center">
+                <label for="">Status</label>
+                <select required wire:model.defer="article.status" class="col-span-5 border rounded p-2">
+                    <option disabled selected>Select Status</option>
+                    @foreach (App\Models\Article::STATUS as $status)
+                        <option value="{{ $status }}" {{ $article->status == $status ? 'selected' : '' }}>
+                            {{ $status }}</option>
                         </option>
                     @endforeach
                 </select>

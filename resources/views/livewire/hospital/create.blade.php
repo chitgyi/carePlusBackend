@@ -21,7 +21,6 @@
     </nav>
 
     <form wire:submit.prevent="store">
-
         <div class="box rounded p-4 space-y-4">
             @if ($errors->any())
                 <div class="flex items-center bg-red-500 text-white text-sm font-bold px-4 py-3" role="alert">
