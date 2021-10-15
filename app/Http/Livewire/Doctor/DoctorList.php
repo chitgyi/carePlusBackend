@@ -9,7 +9,9 @@ class DoctorList extends Component
 {
     public function render()
     {
-        $doctors = Doctor::latest()->get();
+        $doctors = cache()->remember('doctors', 60, function () {
+            return Doctor::latest()->get();
+        });
         return view('livewire.doctor.index', compact('doctors'));
     }
 
@@ -19,5 +21,6 @@ class DoctorList extends Component
             unlink(public_path($doctor->image));
         }
         $doctor->delete();
+        cache()->forget('doctors');
     }
 }
