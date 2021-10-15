@@ -4,6 +4,7 @@ use App\Http\Livewire\Articles\ArticleEdit;
 use App\Http\Livewire\Articles\ArticleCreate;
 use App\Http\Livewire\Articles\ArticleDetail;
 use App\Http\Livewire\Articles\ArticleList;
+use App\Http\Livewire\Auth\Logout;
 use App\Http\Livewire\Category\CategoryCreate;
 use App\Http\Livewire\Category\CategoryDetail;
 use App\Http\Livewire\Category\CategoryEdit;
@@ -22,28 +23,31 @@ use App\Http\Livewire\Settings;
 use App\Http\Livewire\Users;
 use Illuminate\Support\Facades\Route;
 
-Route::get('dashboard', Dashboard::class)->name('dashboard');
+Route::group(['middleware' => 'auth:admin', 'prefix' => 'admin',], function () {
+    Route::get('/logout', Logout::class)->name('admin.logout');
+    Route::get('dashboard', Dashboard::class)->name('dashboard');
 
-Route::get('articles', ArticleList::class)->name('articles');
-Route::get('articles/create', ArticleCreate::class)->name('articles.create');
-Route::get('articles/{id}/edit', ArticleEdit::class)->name('articles.edit');
-Route::get('articles/{id}', ArticleDetail::class)->name('articles.detail');
+    Route::get('articles', ArticleList::class)->name('articles');
+    Route::get('articles/create', ArticleCreate::class)->name('articles.create');
+    Route::get('articles/{id}/edit', ArticleEdit::class)->name('articles.edit');
+    Route::get('articles/{id}', ArticleDetail::class)->name('articles.detail');
 
-Route::get('categories', CategoryList::class)->name('categories');
-Route::get('categories/create', CategoryCreate::class)->name('categories.create');
-Route::get('categories/{id}/edit', CategoryEdit::class)->name('categories.edit');
-Route::get('categories/{id}', CategoryDetail::class)->name('categories.detail');
+    Route::get('categories', CategoryList::class)->name('categories');
+    Route::get('categories/create', CategoryCreate::class)->name('categories.create');
+    Route::get('categories/{id}/edit', CategoryEdit::class)->name('categories.edit');
+    Route::get('categories/{id}', CategoryDetail::class)->name('categories.detail');
 
-Route::get('doctors', DoctorList::class)->name('doctors');
-Route::get('doctors/create', DoctorCreate::class)->name('doctors.create');
-Route::get('doctors/{id}/edit', DoctorEdit::class)->name('doctors.edit');
-Route::get('doctors/{id}', DoctorDetail::class)->name('doctors.detail');
+    Route::get('doctors', DoctorList::class)->name('doctors');
+    Route::get('doctors/create', DoctorCreate::class)->name('doctors.create');
+    Route::get('doctors/{id}/edit', DoctorEdit::class)->name('doctors.edit');
+    Route::get('doctors/{id}', DoctorDetail::class)->name('doctors.detail');
 
-Route::get('hospitals', HospitalList::class)->name('hospitals');
-Route::get('hospitals/create', HospitalCreate::class)->name('hospitals.create');
-Route::get('hospitals/{id}/edit', HospitalEdit::class)->name('hospitals.edit');
-Route::get('hospitals/{id}', HospitalDetail::class)->name('hospitals.detail');
+    Route::get('hospitals', HospitalList::class)->name('hospitals');
+    Route::get('hospitals/create', HospitalCreate::class)->name('hospitals.create');
+    Route::get('hospitals/{id}/edit', HospitalEdit::class)->name('hospitals.edit');
+    Route::get('hospitals/{id}', HospitalDetail::class)->name('hospitals.detail');
 
-Route::get('users', Users::class)->name('users');
-Route::get('notifications', Notifications::class)->name('notifications');
-Route::get('settings', Settings::class)->name('settings');
+    Route::get('users', Users::class)->name('users');
+    Route::get('notifications', Notifications::class)->name('notifications');
+    Route::get('settings', Settings::class)->name('settings');
+});

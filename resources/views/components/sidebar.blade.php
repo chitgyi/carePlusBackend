@@ -145,7 +145,7 @@
                 </a>
             </li>
             <li class="my-px">
-                <a href="#"
+                <a href="{{ route('admin.logout') }}"
                     class="flex flex-row items-center h-10 px-3 rounded-lg text-green-800 hover:bg-green-400 hover:text-white">
                     <span class="flex items-center justify-center text-lg ">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
