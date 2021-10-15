@@ -91,6 +91,9 @@
                 </div>
             @endforeach
         </div>
+        <div class="my-2">
+            {{ $doctors->links() }}
+        </div>
     </div>
 
 </div>

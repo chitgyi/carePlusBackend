@@ -91,5 +91,8 @@
                 </div>
             @endforeach
         </div>
+        <div class="my-2">
+            {{ $articles->links() }}
+        </div>
     </div>
 </div>
