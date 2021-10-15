@@ -90,6 +90,10 @@
                 </div>
             @endforeach
         </div>
+
+        <div class="my-2">
+            {{ $hospitals->links() }}
+        </div>
     </div>
 
 </div>

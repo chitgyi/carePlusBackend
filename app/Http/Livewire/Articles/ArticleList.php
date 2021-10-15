@@ -26,6 +26,9 @@ class ArticleList extends Component
 
     public function delete(Article $article)
     {
+        if ($article->image && $article->image != '/uploads/dummy.jpg') {
+            unlink(public_path($article->image));
+        }
         $article->delete();
         Cache::forget("articles-{$this->page}");
     }

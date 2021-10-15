@@ -4,14 +4,20 @@ namespace App\Http\Livewire\Doctor;
 
 use App\Models\Doctor;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class DoctorList extends Component
 {
+    use WithPagination;
+
     public function render()
     {
-        $doctors = cache()->remember('doctors', 60, function () {
-            return Doctor::latest()->get();
-        });
+        $doctors = cache()
+            ->remember(
+                'doctors-' . $this->page,
+                now()->addMinutes(3),
+                fn () => Doctor::latest()->paginate(50),
+            );
         return view('livewire.doctor.index', compact('doctors'));
     }
 
@@ -21,6 +27,6 @@ class DoctorList extends Component
             unlink(public_path($doctor->image));
         }
         $doctor->delete();
-        cache()->forget('doctors');
+        cache()->forget('doctors-' . $this->page);
     }
 }
