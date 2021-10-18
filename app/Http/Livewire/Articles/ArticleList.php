@@ -18,7 +18,7 @@ class ArticleList extends Component
     {
         $articles = Cache::remember(
             "articles-" . $this->page,
-            now()->addMinutes(5),
+            now()->addMilliseconds(env('CACHE_MINUTES', 1000)),
             fn () => Article::latest()->paginate($this->perPage),
         );
         return view('livewire.articles.index', compact('articles'));
