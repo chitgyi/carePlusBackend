@@ -22,7 +22,6 @@ class CategoryCreate extends Component
 
     public function render()
     {
-        error_log('render');
         return view('livewire.category.create');
     }
 

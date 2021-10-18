@@ -15,7 +15,7 @@ class CategoryList extends Component
         $categories = cache()
             ->remember(
                 'categories-' . $this->page,
-                now()->addMinutes(5),
+                now()->addMillisecond(env('CACHE_TIMEOUT', 1000)),
                 fn () => Category::latest()->paginate(50),
             );
         return view('livewire.category.index', compact('categories'));

@@ -15,7 +15,7 @@ class HospitalList extends Component
         $hospitals = cache()
             ->remember(
                 'hospitals-' . $this->page,
-                now()->addMinutes(3),
+                now()->addMinutes(env('CACHE_TIMEOUT', 1000)),
                 fn () => Hospital::latest()->paginate(50),
             );
         return view('livewire.hospital.index', compact('hospitals'));

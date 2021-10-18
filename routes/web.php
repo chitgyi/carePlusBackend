@@ -20,7 +20,9 @@ use App\Http\Livewire\Hospital\HospitalEdit;
 use App\Http\Livewire\Hospital\HospitalList;
 use App\Http\Livewire\Notifications;
 use App\Http\Livewire\Settings;
-use App\Http\Livewire\Users;
+use App\Http\Livewire\User\UserDetail;
+use App\Http\Livewire\User\UserEdit;
+use App\Http\Livewire\User\UserList;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'auth:admin', 'prefix' => 'admin',], function () {
@@ -47,7 +49,9 @@ Route::group(['middleware' => 'auth:admin', 'prefix' => 'admin',], function () {
     Route::get('hospitals/{id}/edit', HospitalEdit::class)->name('hospitals.edit');
     Route::get('hospitals/{id}', HospitalDetail::class)->name('hospitals.detail');
 
-    Route::get('users', Users::class)->name('users');
+    Route::get('users', UserList::class)->name('users');
+    Route::get('users/{id}/edit', UserEdit::class)->name('users.edit');
+    Route::get('users/{id}', UserDetail::class)->name('users.detail');
     Route::get('notifications', Notifications::class)->name('notifications');
     Route::get('settings', Settings::class)->name('settings');
 });

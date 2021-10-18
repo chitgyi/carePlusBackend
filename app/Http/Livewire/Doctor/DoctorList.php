@@ -15,7 +15,7 @@ class DoctorList extends Component
         $doctors = cache()
             ->remember(
                 'doctors-' . $this->page,
-                now()->addMinutes(3),
+                now()->addMinutes(env('CACHE_TIMEOUT', 1000)),
                 fn () => Doctor::latest()->paginate(50),
             );
         return view('livewire.doctor.index', compact('doctors'));

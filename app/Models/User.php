@@ -26,6 +26,9 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'phone',
+        'address',
+        'image',
         'password',
     ];
 
@@ -40,16 +43,4 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    protected $appends = [
-        'image',
-    ];
-
-    public function getImageAttribute()
-    {
-        if ($this->image) {
-            return URL::to('/') . $this->image;
-        }
-        return $this->image;
-    }
 }
